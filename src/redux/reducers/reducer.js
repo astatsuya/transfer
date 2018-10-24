@@ -9,7 +9,7 @@ const initialState = {
       position: 'Manager',
       join: 2015,
       leave: 2017,
-      branch: 'Tokyo',
+      location: 'Tokyo',
     },
   ],
 };
