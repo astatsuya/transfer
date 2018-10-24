@@ -5,9 +5,10 @@ const initialState = {
     {
       name: 'Tom',
       age: 42,
+      gender: 'Male',
       department: 'Marketing',
       position: 'Manager',
-      join: 2015,
+      arrival: 2015,
       leave: 2017,
       location: 'Tokyo',
     },
