@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import store from '../redux/store';
 import { addInfo } from '../redux/actions/action';
 
 const mapDispatchToProps = (dispatch) => {
@@ -14,62 +13,139 @@ class ConnectedForm extends React.Component {
     super(props);
     this.state = {
       name: '',
-      age: '',
+      age: 30,
+      arrival: 2010,
+      leave: 2010,
+      gender: 'Male',
+      department: 'Marketing',
+      position: 'Director',
+      location: 'Tokyo',
     };
 
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleAgeChange = this.handleAgeChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleNameChange(event) {
+  handleChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
     this.setState({
-      name: event.target.value,
-    });
-  }
-
-  handleAgeChange(event) {
-    this.setState({
-      age: event.target.value,
+      [name]: value,
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    const { name, age } = this.state;
-    this.props.addInfo({ name, age });
-    store.getState();
+    const {
+      name, age, gender, department, position, arrival, leave, location
+    } = this.state;
+    this.props.addInfo({
+      name, age, gender, department, position, arrival, leave, location
+    });
     this.setState({
       name: '',
-      age: '',
     });
   }
 
   render() {
-    const { name, age } = this.state;
-    console.log(name, age);
+    const {
+      name, age, gender, department, position, arrival, leave, location
+    } = this.state;
 
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="Name">
+          <label>
             Name:
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={this.handleNameChange}
-            />
           </label>
-          <label htmlFor="age">
-            age:
-            <input
-              type="text"
-              name="age"
-              value={age}
-              onChange={this.handleAgeChange}
-            />
+          <br />
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={this.handleChange}
+          />
+          <br />
+
+          <label>
+            Age
           </label>
+          <br />
+          <input
+            type="number"
+            name="age"
+            value={age}
+            onChange={this.handleChange}
+          />
+          <br />
+
+          <label>
+            Gender
+          </label>
+          <br />
+          <select name="gender" onChange={this.handleChange} value={gender}>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
+          </select>
+          <br />
+
+          <label>
+            Department
+          </label>
+          <br />
+          <select name="department" onChange={this.handleChange} value={department}>
+            <option value="Marketing">Marketing</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Others">Others</option>
+          </select>
+          <br />
+
+          <label>
+            Position
+          </label>
+          <br />
+          <select name="position" onChange={this.handleChange} value={position}>
+            <option value="Director">Director</option>
+            <option value="Manager">Manager</option>
+            <option value="Chief">Chief</option>
+            <option value="Others">Others</option>
+          </select>
+          <br />
+
+          <label>
+            Arrival
+          </label>
+          <br />
+          <input
+            type="number"
+            name="arrival"
+            value={arrival}
+            onChange={this.handleChange}
+          />
+          <br />
+
+          <label>
+            Leaving
+          </label>
+          <br />
+          <input
+            type="number"
+            name="leave"
+            value={leave}
+            onChange={this.handleChange}
+          />
+          <br />
+
+          <select name="location" onChange={this.handleChange} value={location}>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Osaka">Osaka</option>
+            <option value="OverSeas">OverSeas</option>
+            <option value="Others">Others</option>
+          </select>
+          <br />
+
           <button type="submit" value="Send">
             submit
           </button>
