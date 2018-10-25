@@ -13,8 +13,8 @@ import './App.css';
 // }
 
 const App = () => (
-  <div>
-    app
+  <div className="main-page">
+    <h1>Transfer</h1>
     <Form />
   </div>
 );
