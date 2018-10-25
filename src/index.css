@@ -18,3 +18,20 @@ code {
   margin: 20px auto;
   text-align: center;
 }
+
+.form {
+  background-color: grey;
+  width: 150px;
+  margin: 0 auto;
+  padding: 10px;
+  line-height: 150%;
+}
+
+.form label {
+  text-align: left;
+
+}
+
+.form button {
+  margin: 20px 5px 0 5px;
+}

@@ -1,11 +1,14 @@
+/* global document */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import App from './App';
 import store from './redux/store';
 import check from './redux/check';
-import App from './App';
+
 
 
 ReactDOM.render(

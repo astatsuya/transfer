@@ -1,3 +1,5 @@
+/* global window */
+
 import store from './store';
 import { addInfo } from './actions/action';
 
