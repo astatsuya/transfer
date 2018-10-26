@@ -8,11 +8,16 @@ const mapStateToProps = state => {
 };
 
 const ConnectedSearch = ({ info }) => (
-  <ul>
-  {info.map(stateInfo => (
-    <li>{stateInfo.name}</li>
-  ))}
-  </ul>
+  <table>
+    <tr>
+      <th>name</th>
+      <th>age</th>
+      </tr>
+    <tr>
+      <td>{info[0].name}</td>
+      <td>{info[0].age}</td>
+    </tr>
+  </table>
 );
 
 const Search = connect(mapStateToProps)(ConnectedSearch);
