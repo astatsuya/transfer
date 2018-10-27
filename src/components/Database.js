@@ -9,9 +9,7 @@ const mapStateToProps = state => {
   };
 };
 
-const sortByAge = () => {
 
-}
 
 const ConnectedDataBase = ({ columns, info }) => (
   <table>

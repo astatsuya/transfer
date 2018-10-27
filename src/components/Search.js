@@ -3,7 +3,6 @@ import DataBase from './Database';
 
 const Search = () => (
   <div className="">
-    {}
     <DataBase />
   </div>
 );
