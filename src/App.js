@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
+import DataBase from './components/Database';
 import Search from './components/Search';
 import './App.css';
 
