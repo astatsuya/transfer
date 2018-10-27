@@ -1,7 +1,8 @@
 import { ADD_INFO } from '../actions/action';
 
 const initialState = {
-  columns: ['Name', 'Age', 'Gender', 'Department', 'Position', 'Arrival', 'Leave', 'Location'],
+  columns: ['Name', 'Age', 'Gender', 'Department', 'Position', 'Arrival', 'Leave', 'location'],
+  id: [0],
   info: [
     {
       name: 'Tom',
@@ -16,11 +17,17 @@ const initialState = {
   ],
 };
 
+
+
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_INFO:
       return {
         ...state,
+        id: [
+          ...state.id,
+          action.id,
+        ],
         info: [
           ...state.info,
           action.info,

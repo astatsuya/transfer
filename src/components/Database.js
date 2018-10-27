@@ -11,30 +11,29 @@ const mapStateToProps = state => {
 
 
 
-const ConnectedDataBase = ({ columns, info }) => (
+const ConnectedDataBase = ({ columns, id, info }) => (
   <table>
-    <tr>
-      <th><button onClick='sortByAge'>SORT</button></th>
-    </tr>
-    <tr>
-      {columns.map(state => (
-        <th>{state}</th>
+    <tbody>
+    <tr key='columnstr'>
+      {columns.map((state, index) => (
+        <th key={`columnsth${index}`}>{state}</th>
       ))}
     </tr>
-    {info.map(state => {
+    {info.map((state, index) => {
       return (
-        <tr>
-          <td>{state.name}</td>
-          <td>{state.age}</td>
-          <td>{state.gender}</td>
-          <td>{state.department}</td>
-          <td>{state.position}</td>
-          <td>{state.arrival}</td>
-          <td>{state.leave}</td>
-          <td>{state.location}</td>
+        <tr key={`tr${index}`}>
+          <td key={`name${index}`}>{state.name}</td>
+          <td key={`age${index}`}>{state.age}</td>
+          <td key={`gender${index}`}>{state.gender}</td>
+          <td key={`department${index}`}>{state.department}</td>
+          <td key={`position${index}`}>{state.position}</td>
+          <td key={`arrival${index}`}>{state.arrival}</td>
+          <td key={`leave${index}`}>{state.leave}</td>
+          <td key={`location${index}`}>{state.location}</td>
         </tr>
       );
     })}
+    </tbody>
   </table>
 );
 
