@@ -1,13 +1,26 @@
 export const ADD_INFO = 'ADD_INFO';
-// export const SORT_NAME = 'SORT_NAME';
+export const SORT_NAME = 'SORT_NAME';
+export const FILTER_STATE = 'FILTER_STATE';
+
 
 let nextId = 1;
 
 export const addInfo = info => ({
   type: ADD_INFO,
-  id: nextId++,
+  // id: nextId++,
   info: info,
 });
+
+export const changeFilter = filter => ({
+  type: FILTER_STATE,
+  filter: filter
+});
+
+export const sortName = () => ({
+  type: SORT_NAME,
+
+});
+
 
 // const sort_object = (array, key, order, fn) => {
 //   let num_a = -1;
@@ -28,8 +41,3 @@ export const addInfo = info => ({
 //
 //   fn(array);
 // }
-
-
-// export const sortName = () => ({
-//   type: SORT_NAME,
-// });

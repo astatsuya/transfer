@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { sortName } from '../redux/actions/action';
+import { addInfo } from '../redux/actions/action';
 
 const mapStateToProps = state => {
   return {
@@ -9,12 +9,12 @@ const mapStateToProps = state => {
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     sortName: () => dispatch(sortName()),
-//   };
-// };
-//
+const mapDispatchToProps = dispatch => {
+  return {
+    addInfo: info => dispatch(addInfo(info)),
+  };
+};
+
 // const sort_object = (array, key, order, fn) => {
 //   let num_a = -1;
 //   let num_b = 1;
@@ -35,11 +35,17 @@ const mapStateToProps = state => {
 //   fn(array);
 // }
 
-const ConnectedDataBase = ({ columns, id, info }) => {
-  //
-  // const sort_by_name = sort_object(info, 'name', 'asc', function(new_data){
-  //   return new_data;
+
+
+const ConnectedDataBase = ({ dispatch, columns, id, info }) => {
+
+  // const sort_info = () => info.sort((a, b) => {
+  //   let atoU = a.name.toUpperCase();
+  //   let btoU = b.name.toUpperCase();
+  //   return (atoU < btoU) ? -1 : 1;
   // });
+
+
 
   return (
   <table>
@@ -73,6 +79,6 @@ const ConnectedDataBase = ({ columns, id, info }) => {
   );
 };
 
-const DataBase = connect(mapStateToProps)(ConnectedDataBase);
+const DataBase = connect(mapStateToProps, mapDispatchToProps)(ConnectedDataBase);
 
 export default DataBase;

@@ -38,18 +38,25 @@ class ConnectedForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const {
+    let {
       name, age, gender, department, position, arrival, leave, location
     } = this.state;
+
+    age = parseInt(age, 10);
+    arrival = parseInt(arrival, 10);
+    leave = parseInt(leave, 10);
+
 
     if(name === "") {
       alert('You must input your name!!');
     } else if(arrival > leave) {
       alert('Arrival should be earlier than Leaving');
     } else {
+
       this.props.addInfo({
         name, age, gender, department, position, arrival, leave, location
       });
+      console.log(name)
       this.setState({
         name: '',
         age: 30,
