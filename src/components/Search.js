@@ -46,7 +46,7 @@ const ConnectedSearch = ({ info, ownProps } ) => {
 
   //男性か女性か
 
-  let selectedGender = 'Male';
+  let selectedGender = ownProps.gender;
 
   const filterGender = info.filter(value => {
     if(selectedGender !== 'all'){
@@ -68,7 +68,7 @@ const ConnectedSearch = ({ info, ownProps } ) => {
   })
 
   //その中でポジションは何か
-  let selectedPosition = 'Director';
+  let selectedPosition = ownProps.position;
 
   const filterPosition = filterDepartment.filter(value => {
     if(selectedPosition !== 'all'){
@@ -79,7 +79,7 @@ const ConnectedSearch = ({ info, ownProps } ) => {
   })
 
   //その中でロケーションはどこか
-  let selectedLocation = 'Tokyo';
+  let selectedLocation = ownProps.location;
 
   const filterLocation = filterPosition.filter(value => {
     if(selectedLocation !== 'all'){
@@ -111,13 +111,16 @@ const ConnectedSearch = ({ info, ownProps } ) => {
     <div>
       <br />
       <p>ここからSearch</p>
-      Test: {testresult}
+      Test: {testresult} <br />
       <button >filter</button>
       <br />
       TermAverageEngineering:{term_stay_filtered}<br />
       TermaverageAll: {term_stay_average}<br />
       termeach: {term_stay_each}<br />
-      filter in Seach : {ownProps.filter}
+      filter in Seach : {ownProps.gender}<br />
+      department in Seach : {ownProps.department}<br />
+      position in Seach : {ownProps.position}<br />
+      location in Seach : {ownProps.location}<br />
     </div>
 
   )
