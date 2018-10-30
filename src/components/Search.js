@@ -57,7 +57,7 @@ const ConnectedSearch = ({ info, ownProps } ) => {
   })
 
   //その中で部署はどこか
-  let selectedDepartment = ownProps.filter
+  let selectedDepartment = ownProps.department
 
   const filterDepartment = filterGender.filter(value => {
     if(selectedDepartment !== 'all'){
@@ -90,11 +90,11 @@ const ConnectedSearch = ({ info, ownProps } ) => {
   })
 
   //選択した部署のLeave - Arrival
-  const term_filte_array = filterPosition.map(a => {
+  const term_filter_array = filterPosition.map(a => {
     return a.leave - a.arrival;
   })
 
-  //選択した部署の配列の要素数
+  //選択した部署の配列のposition要素の羅列
   const length_filter_array = filterPosition.map(a => {
     return a.position
   })
@@ -102,22 +102,18 @@ const ConnectedSearch = ({ info, ownProps } ) => {
   const lengthArrayAll = length(age)
   const lengthArrayFiltered = length(length_filter_array)
   //平均勤続年数
-  const term_stay_filtered = (sum(term_filte_array) / lengthArrayFiltered).toFixed(1);
-  const term_stay_average = (sum(term_stay_each) /lengthArrayAll).toFixed(1);
+  const term_stay_filtered = (sum(term_filter_array) / lengthArrayFiltered).toFixed(1);
 
-  const testresult = length_filter_array
+  const term_stay_average = (sum(term_stay_each) /lengthArrayAll).toFixed(1);
 
   return (
     <div>
       <br />
-      <p>ここからSearch</p>
-      Test: {testresult} <br />
-      <button >filter</button>
       <br />
-      TermAverageEngineering:{term_stay_filtered}<br />
+      term_stay_filtered:{term_stay_filtered}<br />
       TermaverageAll: {term_stay_average}<br />
-      termeach: {term_stay_each}<br />
-      filter in Seach : {ownProps.gender}<br />
+      termeach: {term_stay_each}<br /><br />
+      gender in Seach : {ownProps.gender}<br />
       department in Seach : {ownProps.department}<br />
       position in Seach : {ownProps.position}<br />
       location in Seach : {ownProps.location}<br />
