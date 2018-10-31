@@ -115,7 +115,6 @@ const ConnectedSearch = ({ info, ownProps } ) => {
             大阪には${lengthOfOsaka}人異動した。
             海外には${lengthOfOverSeas}人異動した。
             その他${lengthOfOthers}人異動した。`
-
   }
   //該当年数以降の異動先の割合
   //
