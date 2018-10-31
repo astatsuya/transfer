@@ -103,7 +103,6 @@ import Search from './Search';
           </select>
           <br />
           <br />
-          <button>Search</button>
           <br />
           <Search
             gender={this.state.gender}

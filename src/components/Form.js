@@ -186,7 +186,7 @@ class ConnectedForm extends React.Component {
         <br />
 
         <button type="submit" value="Send">
-          submit
+          Submit
         </button>
         <button onClick={this.handleClear}>
           Reset
