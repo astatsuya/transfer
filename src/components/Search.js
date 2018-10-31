@@ -81,10 +81,36 @@ const ConnectedSearch = ({ info, ownProps } ) => {
   const nameAll = info.map(a => {
     return a.name
   })
+  //全員の部署の列挙
+  const locationAll = info.map(a => {
+    return a.location
+  })
  //全員の配列の要素数
   const lengthArrayAll = length(nameAll)
   //全員の平均勤続年数 = (全員のleave-arrivalの合計) / 該全員の配列の要素数
   const term_stay_average = (sum(term_stay_each) /lengthArrayAll).toFixed(1);
+  //全員の異動先
+  const new_location_all = () => {
+    const lengthOfTokyo = locationAll.filter((array) => {
+      return array === 'Tokyo'
+    }).length
+
+    const lengthOfOsaka = locationAll.filter((array) => {
+      return array === 'Osaka'
+    }).length
+
+    const lengthOfOverSeas = locationAll.filter((array) => {
+      return array === 'OverSeas'
+    }).length
+
+    const lengthOfOthers = locationAll.filter((array) => {
+      return array === 'Others'
+    }).length
+    return `東京: ${lengthOfTokyo}人
+            大阪: ${lengthOfOsaka}人
+            海外: ${lengthOfOverSeas}人
+            その他: ${lengthOfOthers}人`
+  }
   //該当者の配列の要素数
   const lengthArrayFiltered = length(length_filter_array)
   //該当者の平均勤続年数 = (該当者のleave-arrivalの合計) / 該当者の配列の要素数
@@ -111,10 +137,10 @@ const ConnectedSearch = ({ info, ownProps } ) => {
     const lengthOfOthers = new_location.filter((array) => {
       return array === 'Others'
     }).length
-    return `東京には${lengthOfTokyo}人異動した。
-            大阪には${lengthOfOsaka}人異動した。
-            海外には${lengthOfOverSeas}人異動した。
-            その他${lengthOfOthers}人異動した。`
+    return `東京: ${lengthOfTokyo}人
+            大阪: ${lengthOfOsaka}人
+            海外: ${lengthOfOverSeas}人
+            その他: ${lengthOfOthers}人`
   }
   //該当年数以降の異動先の割合
   //
@@ -148,11 +174,11 @@ const ConnectedSearch = ({ info, ownProps } ) => {
   return (
     <div>
       <br />
-      test : {new_location}
-      <br />
       <button onClick={hipertest}>Check</button>
       <br />
-      {hipertest()}
+      異動先(該当者){hipertest()}
+      <br />
+      異動先(全体){new_location_all()}
       <br />
       異動までの平均年数(該当者) : {term_stay_filtered}年
       <br />
