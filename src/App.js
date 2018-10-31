@@ -3,16 +3,14 @@ import Form from './components/Form';
 import DataBase from './components/Database';
 import Search from './components/Search';
 import SearchForm from './components/Searchform';
+import PageContents from './components/PageContents';
+import Topbar from './components/Topbar';
 import './App.css';
 
 const App = () => (
   <div className="main-page">
-    <h1>Transfer</h1>
-    <Form />
-    <br />
-    <br />
-    <SearchForm />
-    <br />
+    <Topbar />
+    <PageContents />
   </div>
 );
 

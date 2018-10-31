@@ -142,7 +142,7 @@ const ConnectedSearch = ({ info, ownProps } ) => {
             海外: ${lengthOfOverSeas}人
             その他: ${lengthOfOthers}人`
   }
-  //該当年数以降の異動先の割合
+  // 該当年数以降の異動先の割合
   //
   // const percentage_location = () => {
   //   let num_Tokyo = 0;
