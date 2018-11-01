@@ -15,46 +15,10 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-// const sort_object = (array, key, order, fn) => {
-//   let num_a = -1;
-//   let num_b = 1;
-//
-//   if(order === 'asc') {
-//     num_a = 1;
-//     num_b = -1;
-//   }
-//
-//   array = array.sort((a,b) => {
-//     let x = a[key];
-//     let y = b[key];
-//     if (x > y) return num_a;
-//     if (x < y) return num_b;
-//     return 0;
-//   })
-//
-//   fn(array);
-// }
-
-
-
 const ConnectedDataBase = ({ dispatch, columns, id, info }) => {
-
-  // const sort_info = () => info.sort((a, b) => {
-  //   let atoU = a.name.toUpperCase();
-  //   let btoU = b.name.toUpperCase();
-  //   return (atoU < btoU) ? -1 : 1;
-  // });
-
-
-
   return (
   <table>
     <tbody>
-      <tr key='button'>
-        <th key='sort'>
-          <button>Sort</button>
-        </th>
-      </tr>
       <tr key='columnstr'>
         {columns.map((state, index) => (
           <th key={`columnsth${index}`}>{state}</th>
