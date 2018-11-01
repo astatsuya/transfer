@@ -7,7 +7,6 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import store from './redux/store';
-import check from './redux/check';
 
 
 
