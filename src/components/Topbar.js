@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Topbar = () => (
   <div className="topbar">
     <h3>社員データ</h3>
-    <Link to="/">
+    <Link to={process.env.PUBLIC_URL + '/'}>
       <LinkButton buttonName={'トップ'}  />
     </Link>
     <Link to="/form/">
