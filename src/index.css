@@ -86,4 +86,5 @@ select {
 
 .database tr, th, td {
   border: thin solid  black;
+  padding: 5px;
 }
