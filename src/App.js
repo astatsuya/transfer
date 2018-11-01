@@ -12,7 +12,7 @@ const App = () => (
     <div className="main-page">
       <Topbar />
 
-      <Route path="/" exact component={PageContents} />
+      <Route path={process.env.PUBLIC_URL + '/'} exact component={PageContents} />
       <Route path="/form" component={Form} />
       <Route path="/search" component={SearchForm} />
       <Route path="/database" component={DataBase} />
