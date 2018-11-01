@@ -117,7 +117,7 @@ const ConnectedSearch = ({ info, ownProps } ) => {
   const term_stay_filtered = (sum(term_filter_array) / lengthArrayFiltered).toFixed(1) | 0;
 
   //該当者の異動先の要素数
-  const new_location = filterPosition.map(a => {
+  const new_location = filterLocation.map(a => {
     return a.location;
   })
   //該当者の異動先の列挙
