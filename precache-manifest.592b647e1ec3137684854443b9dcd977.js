@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/transfer/static/css/main.6c250139.chunk.css"
   },
   {
-    "revision": "8599c4c9024a00b3e776d5be2e47a55b",
+    "revision": "74e7668d5d06d4b52889fb2b592528bc",
     "url": "/transfer/index.html"
   }
 ];
