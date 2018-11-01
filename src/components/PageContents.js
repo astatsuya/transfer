@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 const PageContents = () => (
-  <div className="main-page">
+  <div className="pagecontents">
     <br />
     <p><Link to="/search/">情報検索</Link>から条件を指定して異動状況を確認できます。</p>
     <p><Link to="/database/">データベース</Link>で全てのリストが確認できます。</p>

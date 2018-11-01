@@ -29,8 +29,7 @@ import Search from './Search';
       } = this.state;
 
       return (
-        <form className="container" onSubmit={this.handleSubmit}>
-          <br />
+        <form className="searchform" onSubmit={this.handleSubmit}>
           <label>
             Gender:
           </label>

@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => {
 
 const ConnectedDataBase = ({ dispatch, columns, id, info }) => {
   return (
-  <table>
+  <table className='database'>
     <tbody>
       <tr key='columnstr'>
         {columns.map((state, index) => (

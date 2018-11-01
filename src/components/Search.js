@@ -144,7 +144,7 @@ const ConnectedSearch = ({ info, ownProps } ) => {
   }
 
   return (
-    <div>
+    <div className='searchresult'>
       全人数 : {lengthArrayAll}人
       <br />
       異動までの平均年数(全体) : {term_stay_average}年
