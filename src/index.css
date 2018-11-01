@@ -13,6 +13,18 @@ code {
     monospace;
 }
 
+button {
+  width: 120px;
+  font-size: 16px;
+  border-radius: 7px;
+  margin: 0 7px;
+  cursor: pointer;
+}
+
+select {
+  font-size: 14px;
+}
+
 .main-page {
   width: 700px;
   height: 650px;
@@ -27,12 +39,6 @@ code {
   padding: 5px;
   text-align: center;
   background-color: #D0CECE;
-}
-
-.link-button {
-  border-radius: 7px;
-  margin: 0 7px;
-  cursor: pointer;
 }
 
 .pagecontents {
@@ -78,6 +84,6 @@ code {
   border: thin solid black;
 }
 
-.database tr, td, th  {
-  border: thin solid black;
+.database tr, th, td {
+  border: thin solid  black;
 }
