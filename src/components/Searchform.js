@@ -12,8 +12,6 @@ import Search from './Search';
       };
 
       this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-      // this.handleClear = this.handleClear.bind(this);
     }
 
     handleChange(event) {
@@ -23,34 +21,7 @@ import Search from './Search';
       this.setState({
         [name]: value,
       })
-      console.log(value)
-      // const target = event.target;
-      // const value = target.type === 'checkbox' ? target.checked : target.value;
-      // const name = target.name;
-      // this.setState({
-      //   [name]: value,
-      // });
     }
-
-    handleSubmit(event) {
-      event.preventDefault();
-      let { gender, department, position, location } = this.state;
-      console.log(gender)
-    }
-
-    // handleClear(event) {
-    //   event.preventDefault();
-    //     this.setState({
-    //       name: '',
-    //       age: 30,
-    //       arrival: 2010,
-    //       leave: 2010,
-    //       gender: 'Male',
-    //       department: 'Marketing',
-    //       position: 'Director',
-    //       location: 'Tokyo',
-    //   });
-    // }
 
     render() {
       const {

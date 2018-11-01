@@ -88,7 +88,7 @@ const ConnectedSearch = ({ info, ownProps } ) => {
  //全員の配列の要素数
   const lengthArrayAll = length(nameAll)
   //全員の平均勤続年数 = (全員のleave-arrivalの合計) / 該全員の配列の要素数
-  const term_stay_average = (sum(term_stay_each) /lengthArrayAll).toFixed(1);
+  const term_stay_average = (sum(term_stay_each) /lengthArrayAll).toFixed(1) | 0;
   //全員の異動先
   const new_location_all = () => {
     const lengthOfTokyo = locationAll.filter((array) => {
@@ -114,14 +114,14 @@ const ConnectedSearch = ({ info, ownProps } ) => {
   //該当者の配列の要素数
   const lengthArrayFiltered = length(length_filter_array)
   //該当者の平均勤続年数 = (該当者のleave-arrivalの合計) / 該当者の配列の要素数
-  const term_stay_filtered = (sum(term_filter_array) / lengthArrayFiltered).toFixed(1);
+  const term_stay_filtered = (sum(term_filter_array) / lengthArrayFiltered).toFixed(1) | 0;
 
-  //該当年数以降の異動先の列挙
+  //該当者の異動先の要素数
   const new_location = filterPosition.map(a => {
     return a.location;
   })
-
-  const hipertest = () => {
+  //該当者の異動先の列挙
+  const new_location_filtered = () => {
     const lengthOfTokyo = new_location.filter((array) => {
       return array === 'Tokyo'
     }).length
@@ -142,52 +142,21 @@ const ConnectedSearch = ({ info, ownProps } ) => {
             海外: ${lengthOfOverSeas}人
             その他: ${lengthOfOthers}人`
   }
-  // 該当年数以降の異動先の割合
-  //
-  // const percentage_location = () => {
-  //   let num_Tokyo = 0;
-  //   let num_Osaka = 0;
-  //   let num_OverSeas = 0;
-  //   let num_Others = 0;
-  //   for(let i = 0; i < new_location.length; i++) {
-  //     if(new_location[i] === 'Tokyo') {
-  //       num_Tokyo++;
-  //       continue;
-  //     } else if (new_location[i] === 'Osaka') {
-  //       num_Osaka++;
-  //       continue;
-  //     }  else if (new_location[i] === 'OverSeas') {
-  //       num_OverSeas++;
-  //       continue;
-  //     }  else {
-  //       num_Others++;
-  //     }
-  //     console.log( `東京は${num_Tokyo}人、大阪は${num_Osaka}人、海外は${num_OverSeas}人、その他${num_Others}人
-  //     `)
-  //   }
-  // }
-
-  //該当年数以降の異動先で最も多い場所
-
-  //
 
   return (
     <div>
-      <br />
-      <button onClick={hipertest}>Check</button>
-      <br />
-      異動先(該当者){hipertest()}
-      <br />
-      異動先(全体){new_location_all()}
-      <br />
-      異動までの平均年数(該当者) : {term_stay_filtered}年
-      <br />
-      該当者数 : {lengthArrayFiltered}人
+      全人数 : {lengthArrayAll}人
       <br />
       異動までの平均年数(全体) : {term_stay_average}年
       <br />
-      全人数 : {lengthArrayAll}人
+      異動先(全体){new_location_all()}
       <br />
+      <br />
+      該当者数 : {lengthArrayFiltered}人
+      <br />
+      異動までの平均年数(該当者) : {term_stay_filtered}年
+      <br />
+      異動先(該当者){new_location_filtered()}
       <br />
     </div>
   );

@@ -56,7 +56,6 @@ class ConnectedForm extends React.Component {
       this.props.addInfo({
         name, age, gender, department, position, arrival, leave, location
       });
-      console.log(name)
       this.setState({
         name: '',
         age: 30,
