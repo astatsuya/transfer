@@ -1,8 +1,4 @@
 import React from 'react';
-import Form from './Form';
-import DataBase from './Database';
-import Search from './Search';
-import SearchForm from './Searchform';
 import LinkButton from './LinkButton';
 import { Link } from 'react-router-dom'
 

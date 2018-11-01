@@ -1,4 +1,4 @@
-import { ADD_INFO, SORT_NAME } from '../actions/action';
+import { ADD_INFO } from '../actions/action';
 
 const initialState = {
   columns: ['Name', 'Age', 'Gender', 'Department', 'Position', 'Arrival', 'Leave', 'location'],
