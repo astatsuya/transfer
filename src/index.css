@@ -30,6 +30,7 @@ select {
   height: 650px;
   margin: 20px auto;
   text-align: center;
+  line-height: 28px;
 }
 
 .topbar {
@@ -86,5 +87,5 @@ select {
 
 .database tr, th, td {
   border: thin solid  black;
-  padding: 5px;
+  padding: 4px;
 }
