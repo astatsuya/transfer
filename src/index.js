@@ -11,9 +11,10 @@ import check from './redux/check';
 
 
 
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+      <App />
   </Provider>,
   document.getElementById('root'),
 );
