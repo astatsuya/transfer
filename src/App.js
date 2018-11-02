@@ -18,7 +18,6 @@ const App = () => (
       <Route path="/database" component={DataBase} />
     </div>
   </BrowserRouter>
-)
-
+);
 
 export default App;
