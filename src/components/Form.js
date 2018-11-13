@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import uuidv1 from 'uuid';
 import { addInfo } from '../redux/actions/action';
 
 const mapDispatchToProps = dispatch => ({
@@ -41,13 +42,13 @@ class ConnectedForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     let {
-      name, age, gender, department, position, arrival, leave, location, nameEmpty, nameAlertColor, wrongArrival, arrivalAlertColor // eslint-disable-line
+       name, age, gender, department, position, arrival, leave, location, nameEmpty, nameAlertColor, wrongArrival, arrivalAlertColor // eslint-disable-line
     } = this.state;
 
     age = parseInt(age, 10);
     arrival = parseInt(arrival, 10);
     leave = parseInt(leave, 10);
-
+    const id = uuidv1();
     if (name === '') {
       this.setState({
         nameEmpty: 'Put in your Name',
@@ -64,7 +65,7 @@ class ConnectedForm extends React.Component {
       });
     } else {
       this.props.addInfo({  // eslint-disable-line
-        name, age, gender, department, position, arrival, leave, location,
+        id, name, age, gender, department, position, arrival, leave, location,
       });
       this.setState({
         name: '',
