@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const LinkButton = (props) => (
-    <button
-      className='link-button'
-    >{props.buttonName}
-    </button>
+const LinkButton = ({ buttonName }) => (
+  <button className="link-button" type="button">
+    {buttonName}
+  </button>
 );
+
+LinkButton.propTypes = {
+  buttonName: PropTypes.string.isRequired,
+};
 
 export default LinkButton;
