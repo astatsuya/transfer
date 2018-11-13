@@ -11,7 +11,8 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "save-dev": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,6 +32,7 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "uuid": "^3.3.2"
   }
 }
