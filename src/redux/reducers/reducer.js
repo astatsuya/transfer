@@ -4,6 +4,7 @@ const initialState = {
   columns: ['Name', 'Age', 'Gender', 'Department', 'Position', 'Arrival', 'Leave', 'location'],
   info: [
     {
+      id: 0,
       name: 'Tom',
       age: 42,
       gender: 'Male',
@@ -14,6 +15,7 @@ const initialState = {
       location: 'Tokyo',
     },
     {
+      id: 1,
       name: 'Bob',
       age: 33,
       gender: 'Male',
@@ -24,6 +26,7 @@ const initialState = {
       location: 'Osaka',
     },
     {
+      id: 2,
       name: 'Josephine',
       age: 45,
       gender: 'Female',
@@ -34,6 +37,7 @@ const initialState = {
       location: 'OverSeas',
     },
     {
+      id: 3,
       name: 'Linda',
       age: 49,
       gender: 'Others',
@@ -44,6 +48,7 @@ const initialState = {
       location: 'Others',
     },
     {
+      id: 4,
       name: 'Taro',
       age: 22,
       gender: 'Others',
