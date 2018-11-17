@@ -1,7 +1,8 @@
-import { ADD_INFO } from '../actions/action';
+import { combineReducers } from 'redux';
+import { ADD_INFO, SORT_TABLE } from '../actions/action';
 
 const initialState = {
-  columns: ['Name', 'Age', 'Gender', 'Department', 'Position', 'Arrival', 'Leave', 'location'],
+  columns: ['ID', 'Name', 'Age', 'Gender', 'Department', 'Position', 'Arrival', 'Leave', 'Location'],
   info: [
     {
       id: 0,
@@ -61,7 +62,7 @@ const initialState = {
   ],
 };
 
-const rootReducer = (state = initialState, action) => {
+const addInfo = (state = initialState, action) => {
   switch (action.type) {
     case ADD_INFO:
       return {
@@ -75,5 +76,19 @@ const rootReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const sortTable = (state = { sortCase: 'ID' }, action) => {
+  switch (action.type) {
+    case SORT_TABLE:
+      return action.sortCase;
+    default:
+      return state;
+  }
+};
+
+const rootReducer = combineReducers({
+  addInfo,
+  sortTable,
+});
 
 export default rootReducer;
