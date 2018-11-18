@@ -77,10 +77,14 @@ const addInfo = (state = initialState, action) => {
   }
 };
 
-const sortTable = (state = { sortCase: 'ID' }, action) => {
+const sortTable = (state = { sortCase: 'ID', order: 'asc' }, action) => {
   switch (action.type) {
     case SORT_TABLE:
-      return action.sortCase;
+      return {
+        ...state.sortTable,
+        sortCase: action.sortCase,
+        order: action.order,
+      };
     default:
       return state;
   }
