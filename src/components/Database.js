@@ -4,44 +4,71 @@ import PropTypes from 'prop-types';
 import { sortTable } from '../redux/actions/action';
 
 const sortTableState = (state, sortTable) => {
-  switch (sortTable) {
+  switch (sortTable.sortCase) {
     case 'ID':
-      return state.sort((a, b) => a.id - b.id);
+      if (sortTable.order === 'asc') {
+        return state.sort((a, b) => a.id - b.id);
+      }
+      return state.sort((a, b) => b.id - a.id);
     case 'Name':
       return state.sort((a, b) => {
         const nameA = a.name.toUpperCase();
         const nameB = b.name.toUpperCase();
-        return nameA < nameB ? -1 : 1;
+        if (sortTable.order === 'asc') {
+          return nameA < nameB ? -1 : 1;
+        }
+        return nameA > nameB ? -1 : 1;
       });
     case 'Age':
-      return state.sort((a, b) => a.age - b.age);
+      if (sortTable.order === 'asc') {
+        return state.sort((a, b) => a.age - b.age);
+      }
+      return state.sort((a, b) => b.age - a.age);
     case 'Gender':
       return state.sort((a, b) => {
-        const genderA = a.gender.toUpperCase();
-        const genderB = b.gender.toUpperCase();
-        return genderA < genderB ? -1 : 1;
+        const nameA = a.gender.toUpperCase();
+        const nameB = b.gender.toUpperCase();
+        if (sortTable.order === 'asc') {
+          return nameA < nameB ? -1 : 1;
+        }
+        return nameA > nameB ? -1 : 1;
       });
     case 'Department':
       return state.sort((a, b) => {
-        const genderA = a.department.toUpperCase();
-        const genderB = b.department.toUpperCase();
-        return genderA < genderB ? -1 : 1;
+        const nameA = a.department.toUpperCase();
+        const nameB = b.department.toUpperCase();
+        if (sortTable.order === 'asc') {
+          return nameA < nameB ? -1 : 1;
+        }
+        return nameA > nameB ? -1 : 1;
       });
     case 'Position':
       return state.sort((a, b) => {
-        const genderA = a.position.toUpperCase();
-        const genderB = b.position.toUpperCase();
-        return genderA < genderB ? -1 : 1;
+        const nameA = a.position.toUpperCase();
+        const nameB = b.position.toUpperCase();
+        if (sortTable.order === 'asc') {
+          return nameA < nameB ? -1 : 1;
+        }
+        return nameA > nameB ? -1 : 1;
       });
     case 'Arrival':
-      return state.sort((a, b) => a.arrival - b.arrival);
+      if (sortTable.order === 'asc') {
+        return state.sort((a, b) => a.arrival - b.arrival);
+      }
+      return state.sort((a, b) => b.arrival - a.arrival);
     case 'Leave':
-      return state.sort((a, b) => a.leave - b.leave);
+      if (sortTable.order === 'asc') {
+        return state.sort((a, b) => a.leave - b.leave);
+      }
+      return state.sort((a, b) => b.leave - a.leave);
     case 'Location':
       return state.sort((a, b) => {
-        const genderA = a.location.toUpperCase();
-        const genderB = b.location.toUpperCase();
-        return genderA < genderB ? -1 : 1;
+        const nameA = a.location.toUpperCase();
+        const nameB = b.location.toUpperCase();
+        if (sortTable.order === 'asc') {
+          return nameA < nameB ? -1 : 1;
+        }
+        return nameA > nameB ? -1 : 1;
       });
     default:
       return state;
@@ -55,7 +82,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  sortTable: sortCase => dispatch(sortTable(sortCase)),
+  sortTable: (sortCase, order) => dispatch(sortTable(sortCase, order)),
 });
 
 const ConnectedDataBase = ({
@@ -65,9 +92,19 @@ const ConnectedDataBase = ({
 }) => (
   <table className="database">
     <tbody>
-      <tr key="columnstr">
+      <tr key="ascStr">
         {columns.map(state => (
-          <th onClick={() => sortTable(state)} key={`columnsth${state}`}>{state}</th>
+          <td onClick={() => sortTable(state, 'asc')} key={`asc${state}`}>↑</td>
+        ))}
+      </tr>
+      <tr key="descStr">
+        {columns.map(state => (
+          <td onClick={() => sortTable(state, 'desc')} key={`desc${state}`}>↓</td>
+        ))}
+      </tr>
+      <tr key="columnStr">
+        {columns.map(state => (
+          <th key={`columnsth${state}`}>{state}</th>
         ))}
       </tr>
       {info.map(state => (
