@@ -6,7 +6,8 @@ export const addInfo = info => ({
   info,
 });
 
-export const sortTable = sortCase => ({
+export const sortTable = (sortCase, order) => ({
   type: SORT_TABLE,
   sortCase,
+  order,
 });
