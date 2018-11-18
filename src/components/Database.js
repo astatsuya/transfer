@@ -101,6 +101,7 @@ const ConnectedDataBase = ({
             <button type="button" style={{ width: 40 }} onClick={() => sortTable(state, 'asc')}>
             ↑
             </button>
+            <br />
             <button type="button" style={{ width: 40 }} onClick={() => sortTable(state, 'desc')}>
             ↓
             </button>
