@@ -64,7 +64,8 @@ const ConnectedSearch = ({ info, ownProps }) => {
   // 全員の配列の要素数
   const lengthArrayAll = length(nameAll);
   // 全員の平均勤続年数 = (全員のleave-arrivalの合計) / 該全員の配列の要素数
-  const termStayAverage = (sum(termStayEach) / lengthArrayAll).toFixed(1) || 0;
+  const termStayAverage = (sum(termStayEach) / lengthArrayAll)
+  === true ? (sum(termStayEach) / lengthArrayAll).toFixed(1) : 0;
   // 全員の異動先毎の人数
   const newLocationAll = () => {
     const lengthOfTokyo = locationAll.filter(array => array === 'Tokyo').length;
@@ -82,7 +83,8 @@ const ConnectedSearch = ({ info, ownProps }) => {
   // 該当者の配列の要素数
   const lengthArrayFiltered = length(lengthFilterArrayy);
   // 該当者の平均勤続年数 = (該当者のleave-arrivalの合計) / 該当者の配列の要素数
-  const termStayFiltered = (sum(termFilterArray) / lengthArrayFiltered).toFixed(1) || 0;
+  const termStayFiltered = (sum(termFilterArray) / lengthArrayFiltered)
+  === true ? (sum(termFilterArray) / lengthArrayFiltered).toFixed(1) : 0;
 
   // 該当者の異動先の列挙
   const newLocation = filterLocation.map(a => a.location);
