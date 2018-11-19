@@ -174,11 +174,11 @@ const ConnectedDataBase = ({
         {columns.map(state => (
           <td key={`asc${state}`} style={{ border: 'none' }}>
             <button type="button" style={{ width: 40 }} onClick={() => sortTable(state, 'asc')}>
-            ↑
+            ↓
             </button>
             <br />
             <button type="button" style={{ width: 40 }} onClick={() => sortTable(state, 'desc')}>
-            ↓
+            ↑
             </button>
           </td>
         ))}
