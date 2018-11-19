@@ -18,9 +18,24 @@ const sortTableState = (state, sortBy) => {
         const nameA = a.name.toUpperCase();
         const nameB = b.name.toUpperCase();
         if (sortBy.order === 'asc') {
-          return nameA < nameB ? -1 : 1;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
         }
-        return nameA > nameB ? -1 : 1;
+        if (sortBy.order === 'desc') {
+          if (nameA > nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1;
+          }
+          return 0;
+        }
+        return 0;
       });
     case 'Age':
       if (sortBy.order === 'asc') {
@@ -32,27 +47,72 @@ const sortTableState = (state, sortBy) => {
         const nameA = a.gender.toUpperCase();
         const nameB = b.gender.toUpperCase();
         if (sortBy.order === 'asc') {
-          return nameA < nameB ? -1 : 1;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
         }
-        return nameA > nameB ? -1 : 1;
+        if (sortBy.order === 'desc') {
+          if (nameA > nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1;
+          }
+          return 0;
+        }
+        return 0;
       });
     case 'Department':
       return state.sort((a, b) => {
         const nameA = a.department.toUpperCase();
         const nameB = b.department.toUpperCase();
         if (sortBy.order === 'asc') {
-          return nameA < nameB ? -1 : 1;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
         }
-        return nameA > nameB ? -1 : 1;
+        if (sortBy.order === 'desc') {
+          if (nameA > nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1;
+          }
+          return 0;
+        }
+        return 0;
       });
     case 'Position':
       return state.sort((a, b) => {
         const nameA = a.position.toUpperCase();
         const nameB = b.position.toUpperCase();
         if (sortBy.order === 'asc') {
-          return nameA < nameB ? -1 : 1;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
         }
-        return nameA > nameB ? -1 : 1;
+        if (sortBy.order === 'desc') {
+          if (nameA > nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1;
+          }
+          return 0;
+        }
+        return 0;
       });
     case 'Arrival':
       if (sortBy.order === 'asc') {
@@ -69,9 +129,24 @@ const sortTableState = (state, sortBy) => {
         const nameA = a.location.toUpperCase();
         const nameB = b.location.toUpperCase();
         if (sortBy.order === 'asc') {
-          return nameA < nameB ? -1 : 1;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
         }
-        return nameA > nameB ? -1 : 1;
+        if (sortBy.order === 'desc') {
+          if (nameA > nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1;
+          }
+          return 0;
+        }
+        return 0;
       });
     default:
       return state;
