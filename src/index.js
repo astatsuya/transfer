@@ -7,6 +7,9 @@ import * as serviceWorker from './serviceWorker';
 import App from './App';
 import store from './redux/store';
 
+window.store = store;
+store.subscribe(() => console.log(store.getState().updateForm.formContents));
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

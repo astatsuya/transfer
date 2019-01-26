@@ -1,7 +1,24 @@
 import { combineReducers } from 'redux';
-import { ADD_INFO, SORT_TABLE } from '../actions/action';
+import { ADD_INFO, SORT_TABLE, UPDATE_FORM } from '../actions/action';
 
 const initialState = {
+  formContents: 
+    {
+      id: 4,
+      name: '',
+      age: 30,
+      arrival: 2010,
+      leave: 2010,
+      gender: 'Male',
+      department: 'Marketing',
+      position: 'Director',
+      location: 'Tokyo',
+      nameEmpty: '',
+      nameAlertColor: '',
+      wrongArrival: '',
+      arrivalAlertColor: '',
+    },
+  
   columns: ['ID', 'Name', 'Age', 'Gender', 'Department', 'Position', 'Arrival', 'Leave', 'Location'],
   info: [
     {
@@ -62,6 +79,35 @@ const initialState = {
   ],
 };
 
+const updateForm = (state = initialState, action) => {
+  switch (action.type) {
+    case UPDATE_FORM:
+      return {
+        ...state,
+        formContents: {
+          ...state.formContents,
+          
+            id: 4,
+            name: action.form,
+            age: 30,
+            arrival: 2010,
+            leave: 2010,
+            gender: 'Male',
+            department: 'Marketing',
+            position: 'Director',
+            location: 'Tokyo',
+            nameEmpty: '',
+            nameAlertColor: '',
+            wrongArrival: '',
+            arrivalAlertColor: '',
+          
+        },
+      };
+    default:
+      return state;
+  }
+};
+
 const addInfo = (state = initialState, action) => {
   switch (action.type) {
     case ADD_INFO:
@@ -92,6 +138,7 @@ const sortTable = (state = { sortCase: 'ID', order: 'asc' }, action) => {
 
 const rootReducer = combineReducers({
   addInfo,
+  updateForm,
   sortTable,
 });
 
