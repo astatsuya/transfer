@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import { ADD_INFO, SORT_TABLE, UPDATE_FORM } from '../actions/action';
+import {
+  ADD_INFO, SORT_TABLE, UPDATE_FORM, CLEAR_FORM,
+} from '../actions/action';
 
 const initialState = {
-  formContents: 
+  formContents:
     {
-      id: 4,
       name: '',
       age: 30,
       arrival: 2010,
@@ -18,7 +19,6 @@ const initialState = {
       wrongArrival: '',
       arrivalAlertColor: '',
     },
-  
   columns: ['ID', 'Name', 'Age', 'Gender', 'Department', 'Position', 'Arrival', 'Leave', 'Location'],
   info: [
     {
@@ -86,21 +86,26 @@ const updateForm = (state = initialState, action) => {
         ...state,
         formContents: {
           ...state.formContents,
-          
-            id: 4,
-            name: action.form,
-            age: 30,
-            arrival: 2010,
-            leave: 2010,
-            gender: 'Male',
-            department: 'Marketing',
-            position: 'Director',
-            location: 'Tokyo',
-            nameEmpty: '',
-            nameAlertColor: '',
-            wrongArrival: '',
-            arrivalAlertColor: '',
-          
+          [action.object]: action.value,
+        },
+      };
+    case CLEAR_FORM:
+      return {
+        ...state,
+        formContents: {
+          ...state.formContents,
+          name: '',
+          age: 30,
+          arrival: 2010,
+          leave: 2010,
+          gender: 'Male',
+          department: 'Marketing',
+          position: 'Director',
+          location: 'Tokyo',
+          nameEmpty: '',
+          nameAlertColor: '',
+          wrongArrival: '',
+          arrivalAlertColor: '',
         },
       };
     default:
@@ -135,6 +140,33 @@ const sortTable = (state = { sortCase: 'ID', order: 'asc' }, action) => {
       return state;
   }
 };
+
+
+// const clearForm = (state = initialState, action) => {
+//   switch (action.type) {
+//     case CLEAR_FORM:
+//       return {
+//         ...state,
+//         formContents: {
+//           ...state.formContents,
+//           name: '',
+//           age: 30,
+//           arrival: 2010,
+//           leave: 2010,
+//           gender: 'Male',
+//           department: 'Marketing',
+//           position: 'Director',
+//           location: 'Tokyo',
+//           nameEmpty: '',
+//           nameAlertColor: '',
+//           wrongArrival: '',
+//           arrivalAlertColor: '',
+//         },
+//       };
+//     default:
+//       return state;
+//   }
+// };
 
 const rootReducer = combineReducers({
   addInfo,
