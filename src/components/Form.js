@@ -41,6 +41,7 @@ const ConnectedForm = ({
       });
     } else {
       id += 1;
+      updateForm({ name: 'id', value: id });
       addInfo({
         id, name, age, gender, department, position, arrival, leave, location,
       });
