@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { mapStateToProps, mapDispatchToProps } from './MapToProps';
+import { mapStateToProps, mapDispatchToProps, formTypes } from './MapToProps';
 
 const ConnectedForm = ({
   formContents, addInfo, updateForm, alertForm, clearForm,
@@ -41,7 +41,7 @@ const ConnectedForm = ({
       });
     } else {
       id += 1;
-      addInfo({  // eslint-disable-line
+      addInfo({
         id, name, age, gender, department, position, arrival, leave, location,
       });
       clearForm();
@@ -190,8 +190,7 @@ ConnectedForm.propTypes = {
   updateForm: PropTypes.func.isRequired,
   alertForm: PropTypes.func.isRequired,
   clearForm: PropTypes.func.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  formContents: PropTypes.object.isRequired,
+  formContents: PropTypes.shape(formTypes).isRequired,
 };
 
 const Form = connect(mapStateToProps, mapDispatchToProps)(ConnectedForm);

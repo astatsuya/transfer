@@ -16,3 +16,21 @@ export const mapDispatchToProps = dispatch => ({
 export const mapStateToProps = state => ({
   formContents: state.updateForm.formContents,
 });
+
+const PropTypes = 'PropTypes';
+
+export const formTypes = () => ({
+  age: PropTypes.number,
+  arrival: PropTypes.number,
+  arrivalAlertColor: PropTypes.string,
+  department: PropTypes.string,
+  gender: PropTypes.string,
+  id: PropTypes.number,
+  leave: PropTypes.number,
+  location: PropTypes.string,
+  name: PropTypes.string,
+  nameAlertColor: PropTypes.string,
+  nameEmpty: PropTypes.string,
+  position: PropTypes.string,
+  wrongArrival: PropTypes.string,
+});
