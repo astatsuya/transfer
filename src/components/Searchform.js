@@ -23,7 +23,7 @@ const ConnectedSearchForm = ({ searchForm, changeForm }) => {
       <label htmlFor="gender"> {// eslint-disable-line
       }
         Gender:
-        <select id="gender" name="gender" onChange={handleChange}  value={ gender }>
+        <select id="gender" name="gender" onChange={handleChange} value={gender}>
           <option value="all">All</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
