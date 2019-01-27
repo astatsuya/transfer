@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 import {
-  ADD_INFO, SORT_TABLE, UPDATE_FORM, CLEAR_FORM,
+  ADD_INFO, SORT_TABLE, UPDATE_FORM, CLEAR_FORM, ALERT_FORM,
 } from '../actions/action';
 
 const initialState = {
   formContents:
     {
+      id: 4,
       name: '',
       age: 30,
       arrival: 2010,
@@ -87,6 +88,17 @@ const updateForm = (state = initialState, action) => {
         formContents: {
           ...state.formContents,
           [action.object]: action.value,
+        },
+      };
+    case ALERT_FORM:
+      return {
+        ...state,
+        formContents: {
+          ...state.formContents,
+          nameEmpty: action.nameEmpty,
+          nameAlertColor: action.nameAlertColor,
+          wrongArrival: action.wrongArrival,
+          arrivalAlertColor: action.arrivalAlertColor,
         },
       };
     case CLEAR_FORM:
