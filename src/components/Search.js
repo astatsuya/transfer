@@ -1,19 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { mapStateToProps } from './MapToProps';
 
-const mapStateToProps = ({ addInfo }, ownProps) => ({
-  info: addInfo.info,
-  ownProps,
-});
+const ConnectedSearch = ({ info, searchForm }) => {
+  const sum = a => a.reduce((x, y) => x + y, 0);
 
-const sum = a => a.reduce((x, y) => x + y, 0);
-
-const length = a => a.reduce(() => a.length, 0);
-
-const ConnectedSearch = ({ info, ownProps }) => {
+  const length = a => a.reduce(() => a.length, 0);
   // 男性か女性か
-  const selectedGender = ownProps.gender;
+  const selectedGender = searchForm.gender;
 
   const filterGender = info.filter((value) => {
     if (selectedGender !== 'all') {
@@ -22,7 +17,7 @@ const ConnectedSearch = ({ info, ownProps }) => {
     return value.gender;
   });
   // その中で部署はどこか
-  const selectedDepartment = ownProps.department;
+  const selectedDepartment = searchForm.department;
 
   const filterDepartment = filterGender.filter((value) => {
     if (selectedDepartment !== 'all') {
@@ -31,7 +26,7 @@ const ConnectedSearch = ({ info, ownProps }) => {
     return value.department;
   });
   // その中でポジションは何か
-  const selectedPosition = ownProps.position;
+  const selectedPosition = searchForm.position;
 
   const filterPosition = filterDepartment.filter((value) => {
     if (selectedPosition !== 'all') {
@@ -40,7 +35,7 @@ const ConnectedSearch = ({ info, ownProps }) => {
     return value.position;
   });
   // その中でロケーションはどこか
-  const selectedLocation = ownProps.location;
+  const selectedLocation = searchForm.location;
 
   const filterLocation = filterPosition.filter((value) => {
     if (selectedLocation !== 'all') {
@@ -140,7 +135,7 @@ const ConnectedSearch = ({ info, ownProps }) => {
 
 ConnectedSearch.propTypes = {
   info: PropTypes.arrayOf(PropTypes.object).isRequired,
-  ownProps: PropTypes.objectOf(PropTypes.string).isRequired,
+  searchForm: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 const Search = connect(mapStateToProps)(ConnectedSearch);
