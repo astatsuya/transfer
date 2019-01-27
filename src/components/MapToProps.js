@@ -167,24 +167,27 @@ export const mapStateToProps = state => ({
   formContents: state.updateForm.formContents,
   columns: state.addInfo.columns,
   searchForm: state.searchForm.searchForm,
-  info: sortTableState(state.addInfo.info, state.sortTable),
+  sortedInfo: sortTableState(state.addInfo.info, state.sortTable),
+  info: state.addInfo.info,
   state,
 });
 
-const PropTypes = 'PropTypes';
-
-export const formTypes = () => ({
-  age: PropTypes.number,
-  arrival: PropTypes.number,
-  arrivalAlertColor: PropTypes.string,
-  department: PropTypes.string,
-  gender: PropTypes.string,
-  id: PropTypes.number,
-  leave: PropTypes.number,
-  location: PropTypes.string,
-  name: PropTypes.string,
-  nameAlertColor: PropTypes.string,
-  nameEmpty: PropTypes.string,
-  position: PropTypes.string,
-  wrongArrival: PropTypes.string,
-});
+export const formTypes = () => {
+  const PropTypes = 'PropTypes';
+  return (
+    {
+      age: PropTypes.number,
+      arrival: PropTypes.number,
+      arrivalAlertColor: PropTypes.string,
+      department: PropTypes.string,
+      gender: PropTypes.string,
+      id: PropTypes.number,
+      leave: PropTypes.number,
+      location: PropTypes.string,
+      name: PropTypes.string,
+      nameAlertColor: PropTypes.string,
+      nameEmpty: PropTypes.string,
+      position: PropTypes.string,
+      wrongArrival: PropTypes.string,
+    });
+};

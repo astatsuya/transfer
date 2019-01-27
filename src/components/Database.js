@@ -5,7 +5,7 @@ import { mapStateToProps, mapDispatchToProps } from './MapToProps';
 
 const ConnectedDataBase = ({
   columns,
-  info,
+  sortedInfo,
   sortTable,
 }) => (
   <table className="database">
@@ -28,7 +28,7 @@ const ConnectedDataBase = ({
           <th key={`columnsth${state}`}>{state}</th>
         ))}
       </tr>
-      {info.map(state => (
+      {sortedInfo.map(state => (
         <tr key={`tr${state.id}`}>
           <td key={`id${state.id}`}>{state.id + 1}</td>
           <td key={`name${state.id}`}>{state.name}</td>
@@ -47,7 +47,7 @@ const ConnectedDataBase = ({
 
 ConnectedDataBase.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.string).isRequired,
-  info: PropTypes.arrayOf(PropTypes.object).isRequired,
+  sortedInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
   sortTable: PropTypes.func.isRequired,
 };
 
