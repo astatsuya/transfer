@@ -8,7 +8,7 @@ import App from './App';
 import store from './redux/store';
 
 window.store = store;
-store.subscribe(() => console.log(store.getState().updateForm.formContents));
+store.subscribe(() => console.log(store.getState().searchForm.searchForm));
 
 ReactDOM.render(
   <Provider store={store}>

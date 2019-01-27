@@ -1,9 +1,15 @@
 import { combineReducers } from 'redux';
 import {
-  ADD_INFO, SORT_TABLE, UPDATE_FORM, CLEAR_FORM, ALERT_FORM,
+  ADD_INFO, SORT_TABLE, UPDATE_FORM, CLEAR_FORM, ALERT_FORM, CHANGE_FORM,
 } from '../actions/action';
 
 const initialState = {
+  searchForm: {
+    gender: 'all',
+    department: 'all',
+    position: 'all',
+    location: 'all',
+  },
   formContents:
     {
       id: 4,
@@ -153,37 +159,28 @@ const sortTable = (state = { sortCase: 'ID', order: 'asc' }, action) => {
   }
 };
 
+const searchForm = (state = initialState, action) => {
+  switch (action.type) {
+    case CHANGE_FORM:
+      return {
+        ...state,
+        searchForm: {
+          ...state.searchForm,
+          [action.name]: action.value,
+        },
 
-// const clearForm = (state = initialState, action) => {
-//   switch (action.type) {
-//     case CLEAR_FORM:
-//       return {
-//         ...state,
-//         formContents: {
-//           ...state.formContents,
-//           name: '',
-//           age: 30,
-//           arrival: 2010,
-//           leave: 2010,
-//           gender: 'Male',
-//           department: 'Marketing',
-//           position: 'Director',
-//           location: 'Tokyo',
-//           nameEmpty: '',
-//           nameAlertColor: '',
-//           wrongArrival: '',
-//           arrivalAlertColor: '',
-//         },
-//       };
-//     default:
-//       return state;
-//   }
-// };
+      };
+    default:
+      return state;
+  }
+};
+
 
 const rootReducer = combineReducers({
   addInfo,
   updateForm,
   sortTable,
+  searchForm,
 });
 
 export default rootReducer;

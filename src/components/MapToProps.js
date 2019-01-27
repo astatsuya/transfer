@@ -4,6 +4,7 @@ import {
   clearForm,
   alertForm,
   sortTable,
+  changeForm,
 } from '../redux/actions/action';
 
 export const sortTableState = (state, sortBy) => {
@@ -159,11 +160,13 @@ export const mapDispatchToProps = dispatch => ({
   alertForm: form => dispatch(alertForm(form)),
   clearForm: () => dispatch(clearForm()),
   sortTable: (sortCase, order) => dispatch(sortTable(sortCase, order)),
+  changeForm: form => dispatch(changeForm(form)),
 });
 
 export const mapStateToProps = state => ({
   formContents: state.updateForm.formContents,
   columns: state.addInfo.columns,
+  searchForm: state.searchForm.searchForm,
   info: sortTableState(state.addInfo.info, state.sortTable),
   state,
 });

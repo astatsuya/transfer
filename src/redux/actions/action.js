@@ -3,6 +3,7 @@ export const ALERT_FORM = 'ALERT_FORM';
 export const ADD_INFO = 'ADD_INFO';
 export const SORT_TABLE = 'SORT_TABLE';
 export const CLEAR_FORM = 'CLEAR_FORM';
+export const CHANGE_FORM = 'CHANGE_FORM';
 
 export const updateForm = form => ({
   type: UPDATE_FORM,
@@ -31,4 +32,10 @@ export const sortTable = (sortCase, order) => ({
 
 export const clearForm = () => ({
   type: CLEAR_FORM,
+});
+
+export const changeForm = form => ({
+  type: CHANGE_FORM,
+  name: form.name,
+  value: form.value,
 });
