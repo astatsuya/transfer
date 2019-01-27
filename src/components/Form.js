@@ -24,7 +24,6 @@ const ConnectedForm = ({
   formContents, addInfo, updateForm, alertForm, clearForm,
 }) => {
   const {
-    id,
     name,
     age,
     gender,
@@ -38,6 +37,8 @@ const ConnectedForm = ({
     nameAlertColor,
     arrivalAlertColor,
   } = formContents;
+
+  let { id } = formContents;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -56,6 +57,7 @@ const ConnectedForm = ({
         nameAlertColor: '',
       });
     } else {
+      id += 1;
       addInfo({  // eslint-disable-line
         id, name, age, gender, department, position, arrival, leave, location,
       });
