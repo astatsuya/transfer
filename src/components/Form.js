@@ -19,7 +19,10 @@ const mapStateToProps = state => ({
   formContents: state.updateForm.formContents,
 });
 
-const ConnectedForm = (props) => {
+const ConnectedForm = ({
+  // eslint-disable-next-line no-shadow
+  formContents, addInfo, updateForm, alertForm, clearForm,
+}) => {
   const {
     id,
     name,
@@ -34,37 +37,39 @@ const ConnectedForm = (props) => {
     wrongArrival,
     nameAlertColor,
     arrivalAlertColor,
-  } = props.formContents;
+  } = formContents;
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (name === '') {
-      props.alertForm({
+      alertForm({
         nameEmpty: 'Put in your Name',
         nameAlertColor: 'red',
         wrongArrival: '',
         arrivalAlertColor: '',
       });
     } else if (arrival > leave) {
-      props.alertForm({
+      alertForm({
         wrongArrival: 'Should be earlier than Leaving',
         arrivalAlertColor: 'red',
         nameEmpty: '',
         nameAlertColor: '',
       });
     } else {
-      props.addInfo({  // eslint-disable-line
+      addInfo({  // eslint-disable-line
         id, name, age, gender, department, position, arrival, leave, location,
       });
-      props.clearForm();
+      clearForm();
     }
   };
 
   const handleChange = (event) => {
+    // eslint-disable-next-line no-shadow
     const { name, type } = event.target;
     let value;
-    type === "number" ? value = parseInt(event.target.value) : value = event.target.value;
-    props.updateForm({
+    // eslint-disable-next-line no-unused-expressions
+    type === 'number' ? value = parseInt(event.target.value) : value = event.target.value;
+    updateForm({
       name,
       value,
     });
@@ -72,7 +77,7 @@ const ConnectedForm = (props) => {
 
   const handleClear = (event) => {
     event.preventDefault();
-    props.clearForm();
+    clearForm();
   };
 
   return (
@@ -200,17 +205,9 @@ ConnectedForm.propTypes = {
   updateForm: PropTypes.func.isRequired,
   alertForm: PropTypes.func.isRequired,
   clearForm: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
   formContents: PropTypes.object.isRequired,
-
-  // columns: PropTypes.arrayOf(PropTypes.string).isRequired,
-  // info: PropTypes.arrayOf(PropTypes.object).isRequired,
-  // sortTable: PropTypes.func.isRequired,
 };
-
-// addInfo: info => dispatch(addInfo(info)),
-// updateForm: form => dispatch(updateForm(form)),
-// alertForm: form => dispatch(alertForm(form)),
-// clearForm: () => dispatch(clearForm()),
 
 const Form = connect(mapStateToProps, mapDispatchToProps)(ConnectedForm);
 
