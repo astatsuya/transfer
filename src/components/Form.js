@@ -1,26 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-  addInfo,
-  updateForm,
-  clearForm,
-  alertForm,
-} from '../redux/actions/action';
-
-const mapDispatchToProps = dispatch => ({
-  addInfo: info => dispatch(addInfo(info)),
-  updateForm: form => dispatch(updateForm(form)),
-  alertForm: form => dispatch(alertForm(form)),
-  clearForm: () => dispatch(clearForm()),
-});
-
-const mapStateToProps = state => ({
-  formContents: state.updateForm.formContents,
-});
+import { mapStateToProps, mapDispatchToProps } from './MapToProps';
 
 const ConnectedForm = ({
-  // eslint-disable-next-line no-shadow
   formContents, addInfo, updateForm, alertForm, clearForm,
 }) => {
   const {
