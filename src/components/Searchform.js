@@ -31,43 +31,42 @@ const ConnectedSearchForm = ({ searchForm, changeForm }) => {
         </select>
       </label>
       <br />
-
-       <label htmlFor="department"> {// eslint-disable-line
+      <label htmlFor="department"> {// eslint-disable-line
       }
-         Department:
-         <select id="department" name="department" onChange={handleChange} value={department}>
-           <option value="all">All</option>
-           <option value="Marketing">Marketing</option>
-           <option value="Engineering">Engineering</option>
-           <option value="Others">Others</option>
-         </select>
-       </label>
-       <br />
-
-         <label htmlFor="position"> {// eslint-disable-line
-         }
-         Position:
-         <select id="position" name="position" onChange={handleChange} value={position}>
-           <option value="all">All</option>
-           <option value="Director">Director</option>
-           <option value="Manager">Manager</option>
-           <option value="Chief">Chief</option>
-           <option value="Others">Others</option>
-         </select>
-       </label>
-       <br />
-
-       <label htmlFor="location"> {// eslint-disable-line
-      }
-        Location:
-        <select id="location" name="location" onChange={handleChange} value={location}>
+        Department:
+        <select id="department" name="department" onChange={handleChange} value={department}>
           <option value="all">All</option>
-          <option value="Tokyo">Tokyo</option>
-          <option value="Osaka">Osaka</option>
-          <option value="OverSeas">OverSeas</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Engineering">Engineering</option>
           <option value="Others">Others</option>
         </select>
       </label>
+      <br />
+
+      <label htmlFor="position"> {// eslint-disable-line
+      }
+      Position:
+        <select id="position" name="position" onChange={handleChange} value={position}>
+          <option value="all">All</option>
+          <option value="Director">Director</option>
+          <option value="Manager">Manager</option>
+          <option value="Chief">Chief</option>
+          <option value="Others">Others</option>
+        </select>
+      </label>
+      <br />
+
+       <label htmlFor="location"> {// eslint-disable-line
+      }
+      Location:
+         <select id="location" name="location" onChange={handleChange} value={location}>
+           <option value="all">All</option>
+           <option value="Tokyo">Tokyo</option>
+           <option value="Osaka">Osaka</option>
+           <option value="OverSeas">OverSeas</option>
+           <option value="Others">Others</option>
+         </select>
+       </label>
       <br />
       <br />
       <br />
@@ -80,6 +79,11 @@ const ConnectedSearchForm = ({ searchForm, changeForm }) => {
       <br />
     </form>
   );
+};
+
+ConnectedSearchForm.propTypes = {
+  searchForm: PropTypes.objectOf(PropTypes.string).isRequired,
+  changeForm: PropTypes.func.isRequired,
 };
 
 const SearchForm = connect(mapStateToProps, mapDispatchToProps)(ConnectedSearchForm);
