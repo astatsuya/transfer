@@ -70,7 +70,7 @@ const ConnectedForm = ({
     const { name, type } = event.target;
     let value;
     // eslint-disable-next-line no-unused-expressions
-    type === 'number' ? value = parseInt(event.target.value) : value = event.target.value;
+    type === 'number' ? value = parseInt(event.target.value, 10) : { value } = event.target;
     updateForm({
       name,
       value,
