@@ -20,7 +20,6 @@ const ConnectedForm = ({
     nameAlertColor,
     arrivalAlertColor,
   } = formContents;
-  console.log(formContents)
 
   let { id } = formContents;
 
