@@ -45,7 +45,6 @@ const ConnectedSearch = ({ info, searchForm }) => {
 
   // 選択した部署の配列のposition要素の羅列
   const lengthFilterArrayy = filteredInfo.map(a => a.position);
-
   // 全員のLeave - arrivalの列挙
   const termStayEach = info.map(a => a.leave - a.arrival);
   // 全員の名前の列挙
@@ -71,6 +70,7 @@ const ConnectedSearch = ({ info, searchForm }) => {
             海外: ${lengthOfOverSeas}人
             その他: ${lengthOfOthers}人`;
   };
+
   // 該当者の配列の要素数
   const lengthArrayFiltered = length(lengthFilterArrayy);
   // 該当者の平均勤続年数 = (該当者のleave-arrivalの合計) / 該当者の配列の要素数
