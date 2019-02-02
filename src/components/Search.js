@@ -7,6 +7,7 @@ const ConnectedSearch = ({ info, searchForm }) => {
   const sum = a => a.reduce((x, y) => x + y, 0);
 
   const length = a => a.reduce(() => a.length, 0);
+
   // 男性か女性か
   const selectedGender = searchForm.gender;
 
