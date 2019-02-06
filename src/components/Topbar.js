@@ -8,13 +8,13 @@ const Topbar = () => (
     <Link to={`${process.env.PUBLIC_URL}/`}>
       <LinkButton buttonName="トップ" />
     </Link>
-    <Link to="/form/">
+    <Link to="transfer/form/">
       <LinkButton buttonName="情報入力" />
     </Link>
-    <Link to="/search/">
+    <Link to="transfer/search/">
       <LinkButton buttonName="情報検索" />
     </Link>
-    <Link to="/database/">
+    <Link to={`${process.env.PUBLIC_URL}/database`}>
       <LinkButton buttonName="登録データ" />
     </Link>
   </div>

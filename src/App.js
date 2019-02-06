@@ -16,7 +16,7 @@ const App = () => (
       <Route path={`${process.env.PUBLIC_URL}/`} exact component={PageContents} />
       <Route path="transfer/form" component={Form} />
       <Route path="transfer/search" component={SearchForm} />
-      <Route path="transfer/dataBase" component={DataBase} />
+      <Route path={`${process.env.PUBLIC_URL}/`} component={DataBase} />
     </div>
   </BrowserRouter>
 );
