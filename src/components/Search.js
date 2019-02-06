@@ -9,11 +9,18 @@ const ConnectedSearch = ({ info, searchForm }) => {
   const length = a => a.reduce(() => a.length, 0);
 
   const filteredInfo = info.filter((value) => {
-    for (const key in searchForm) {
-      if (searchForm[key] !== 'all' && value[key] !== searchForm[key]) {
+    const searchKeys = Object.keys(searchForm);
+    for (let i = 0; i < Object.keys(searchForm).length; i += 1) {
+      if (searchForm[searchKeys[i]] !== 'all' && value[searchKeys[i]] !== searchForm[searchKeys[i]]) {
         return false;
       }
     }
+    /* for (const key in searchForm) {
+      console.log(key)
+      if (searchForm[key] !== 'all' && value[key] !== searchForm[key]) {
+        return false;
+      }
+    } */
     return true;
   });
 
