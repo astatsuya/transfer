@@ -15,31 +15,39 @@ const ConnectedSearch = ({ info, searchForm }) => {
     location,
   } = searchForm;
 
-  // トグル選択で選択したのと一致する項目のみ抽出
-  const filteredInfo = info.filter((value, index, array) => {
-    if (gender !== 'all') {
-      return value.gender === gender;
+  // const toggle = {gender, department, position, location};
+  // const items = ["gender", "department", "position", "location"];
+
+/*   const filteredInfo = 
+  info.filter(value => {
+    for (let key in searchForm) {
+      if (value !== 'all' && value[key] !== searchForm[key])
+      // console.log(item[key])
+      console.log(key)
+      // console.log(searchForm[key])
+      return false;
     }
-    return array;
+    return true;
   })
-    .filter((value, index, array) => {
-      if (department !== 'all') {
-        return value.department === department;
-      }
-      return array;
-    })
-    .filter((value, index, array) => {
-      if (position !== 'all') {
-        return value.position === position;
-      }
-      return array;
-    })
-    .filter((value, index, array) => {
-      if (location !== 'all') {
-        return value.location === location;
-      }
-      return array;
-    });
+  console.log(filteredInfo) */
+/* 
+  const filteredInfo = 
+  info.filter(value => {
+    for (let key in searchForm) {
+      // console.log(value[key])
+      console.log(key)
+      return searchForm[key] !== 'all' ? value.searchForm[key] === searchForm[key] : true;
+    }
+    return true;
+  }) */
+  // console.log(filteredInfo)
+
+  // トグル選択で選択したのと一致する項目のみ抽出
+  const filteredInfo = 
+  info.filter(value => gender !== 'all' ? value.gender === gender : true)
+      .filter(value => department !== 'all' ? value.department === department : true)
+      .filter(value => position !== 'all' ? value.position === position : true)
+      .filter(value => location !== 'all' ? value.location === location : true);
 
   const termFilterArray = filteredInfo.map(a => a.leave - a.arrival);
 
