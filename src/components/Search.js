@@ -16,7 +16,6 @@ const ConnectedSearch = ({ info, searchForm }) => {
       }
     }
     /* for (const key in searchForm) {
-      console.log(key)
       if (searchForm[key] !== 'all' && value[key] !== searchForm[key]) {
         return false;
       }
