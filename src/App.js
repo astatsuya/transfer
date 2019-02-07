@@ -14,9 +14,9 @@ const App = () => (
       <Topbar />
 
       <Route path={`${process.env.PUBLIC_URL}/`} exact component={PageContents} />
-      <Route path="transfer/form" component={Form} />
-      <Route path="transfer/search" component={SearchForm} />
-      <Route path={`${process.env.PUBLIC_URL}/`} component={DataBase} />
+      <Route path="/form" component={Form} />
+      <Route path="/search" component={SearchForm} />
+      <Route path="/database" component={DataBase} />
     </div>
   </BrowserRouter>
 );
